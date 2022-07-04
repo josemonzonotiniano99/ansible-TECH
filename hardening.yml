@@ -24,7 +24,7 @@
         chdir: C:\Temp\ansible-PCI\
         
     - name: Identificando files creados
-      shell: Get-ChildItem | where {!$_.PsIsContainer} | foreach { $_.Name }
+      win_shell: Get-ChildItem | where {!$_.PsIsContainer} | foreach { $_.Name }
       args:
         chdir: C:\\Temp\\ansible-PCI\\
       register: files
