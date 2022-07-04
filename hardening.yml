@@ -22,12 +22,18 @@
       win_shell: C:\Temp\ansible-PCI\PCI.ps1
       args:
         chdir: C:\Temp\ansible-PCI\
-
+    - name: Identificando files creados
+      shell: Get-ChildItem | where {!$_.PsIsContainer} | foreach { $_.Name }
+      args:
+        chdir: C:\\Temp\\ansible-PCI\\
+      register: files
+    - debug: var=files.stdout_lines
+    
     - name: Descargando resultados
       #win_copy:
       fetch:
         validate_checksum: yes
-        src: C:\\Temp\\ansible-PCI\\*
+        src: C:\\Temp\\ansible-PCI\\
         #src: {{ item }}
         dest: /home/adm-ansible/
         #remote_src: yes
