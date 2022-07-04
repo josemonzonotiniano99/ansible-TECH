@@ -27,7 +27,8 @@
       args:
         chdir: C:\\Temp\\ansible-PCI\\
       register: files
-    - debug: var=files.stdout_lines
+      
+    - debug: msg={{ files.stdout }}
     
     - name: Descargando resultados
       #win_copy:
