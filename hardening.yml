@@ -30,17 +30,19 @@
       register: files
       
     - debug: 
-        msg: "{{ files }}"
+        msg: "{{ files.stdout_lines }}"
     
     - name: Descargando resultados
       #win_copy:
       fetch:
         validate_checksum: yes
-        src: C:\\Temp\\ansible-PCI\\
+        src: C:\\Temp\\ansible-PCI\\{{ item }}
         #src: {{ item }}
         dest: /home/adm-ansible/
         #remote_src: yes
         flat: yes
+      with_items:
+        - "{{   files.stdout_lines  }}"
       #with_fileglob: 
        # - "C:\\Temp\\ansible-PCI\\*"
         #- "*.txt"
