@@ -31,7 +31,7 @@
         #remote_src: True
         flat: yes
       with_fileglob: 
-        - "C:\\Temp\\ansible-PCI\\*.txt"
+        - "C:\\Temp\\ansible-PCI\\*"
         #- "*.txt"
         
 
