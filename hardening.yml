@@ -27,7 +27,7 @@
       win_copy:
         src: "{{item}}"
         #dest: /root/awx/projects/Hardening/
-        dest: /tmp/
+        dest: /home/adm-ansible/
         remote_src: True
       with_fileglob: 
         - "C:\\Temp\\ansible-PCI\\*.txt"
