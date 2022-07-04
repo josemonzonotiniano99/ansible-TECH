@@ -27,12 +27,13 @@
       #win_copy:
       fetch:
         validate_checksum: yes
-        src: C:\\Temp\\ansible-PCI\\
+        #src: C:\\Temp\\ansible-PCI\\
+        src: {{ item }}
         dest: /home/adm-ansible/
         #remote_src: yes
         flat: yes
-      #with_fileglob: 
-       # - "C:\\Temp\\ansible-PCI\\PCI.ps1"
+      with_fileglob: 
+        - "C:\\Temp\\ansible-PCI\\*"
         #- "*.txt"
         
 
