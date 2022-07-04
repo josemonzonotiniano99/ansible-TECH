@@ -16,12 +16,12 @@
       win_copy:
         #src: /root/awx/projects/Hardening/PCI.ps1
         src: PCI.ps1
-        dest: C:\Temp\ansible-PCI
+        dest: C:\Temp\ansible-PCI\
 
     - name: Ejecutando Script PCI hardening
       win_shell: PCI.ps1
       args:
-        chdir: C:\Temp\ansible-PCI
+        chdir: C:\Temp\ansible-PCI\
 
     - name: Descargando resultados
       win_copy:
