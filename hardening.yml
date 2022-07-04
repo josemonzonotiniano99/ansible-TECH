@@ -25,7 +25,7 @@
 
     - name: Descargando resultados
       win_copy:
-        src: {{item}}
+        src: "{{item}}"
         #dest: /root/awx/projects/Hardening/
         dest: /tmp
         with_fileglob: C:\Temp\ansible-PCI\*.txt
