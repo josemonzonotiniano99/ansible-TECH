@@ -19,7 +19,7 @@
         dest: C:\Temp\ansible-PCI\
 
     - name: Ejecutando Script PCI hardening
-      win_shell: PCI
+      win_shell: C:\Temp\ansible-PCI\PCI.ps1
       args:
         chdir: C:\Temp\ansible-PCI\
 
