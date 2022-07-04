@@ -26,6 +26,7 @@
     - name: Descargando resultados
       #win_copy:
       fetch:
+        validate_checksum: yes
         src: C:\\Temp\\ansible-PCI\\
         dest: /home/adm-ansible/
         #remote_src: yes
