@@ -27,7 +27,7 @@
       win_copy:
         src: C:\Temp\ansible-PCI\*.txt
         #dest: /root/awx/projects/Hardening/
-        dest: /ansible-TECH
+        dest: /tmp
         remote_src: True
 
 
