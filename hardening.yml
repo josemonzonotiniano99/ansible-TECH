@@ -26,12 +26,12 @@
     - name: Descargando resultados
       win_copy:
       #fetch:
-        src: "{{item}}"
+        src: C:\\Temp\\ansible-PCI\\PCI.ps1
         dest: /home/adm-ansible/
         remote_src: yes
         #flat: yes
-      with_fileglob: 
-        - "C:\\Temp\\ansible-PCI\\PCI.ps1"
+      #with_fileglob: 
+       # - "C:\\Temp\\ansible-PCI\\PCI.ps1"
         #- "*.txt"
         
 
