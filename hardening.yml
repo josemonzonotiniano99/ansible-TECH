@@ -1,0 +1,33 @@
+- name : Hardening - Windows
+  #hosts: localhost
+  hosts: all
+  gather_facts: no
+  become: true
+  #connection: remote
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  tasks:
+    - name: Creando directorio temporal
+      win_file:
+        path: C:\Temp\ansible-PCI
+        state: directory
+
+    - name: Transfiriendo script a los hosts
+      win_copy:
+        src: /root/awx/projects/Hardening/PCI.ps1
+        dest: C:\Temp\ansible-PCI
+
+    - name: Ejecutando Script PCI hardening
+      win_shell: PCI.ps1
+      args:
+        chdir: C:\Temp\ansible-PCI
+
+    - name: Descargando resultados
+      win_copy:
+        src: C:\Temp\ansible-PCI\*.txt
+        dest: /root/awx/projects/Hardening/
+        remote_src: True
+
+
+
+
