@@ -14,7 +14,8 @@
 
     - name: Transfiriendo script a los hosts
       win_copy:
-        src: /root/awx/projects/Hardening/PCI.ps1
+        #src: /root/awx/projects/Hardening/PCI.ps1
+        src: PCI.ps1
         dest: C:\Temp\ansible-PCI
 
     - name: Ejecutando Script PCI hardening
@@ -25,7 +26,8 @@
     - name: Descargando resultados
       win_copy:
         src: C:\Temp\ansible-PCI\*.txt
-        dest: /root/awx/projects/Hardening/
+        #dest: /root/awx/projects/Hardening/
+        dest: /ansible-TECH
         remote_src: True
 
 
