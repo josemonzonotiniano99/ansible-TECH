@@ -24,11 +24,12 @@
         chdir: C:\Temp\ansible-PCI\
 
     - name: Descargando resultados
-      win_copy:
+      #win_copy:
+      fetch:
         src: "{{item}}"
-        #dest: /root/awx/projects/Hardening/
         dest: /home/adm-ansible/
-        remote_src: True
+        #remote_src: True
+        flat: yes
       with_fileglob: 
         - "C:\\Temp\\ansible-PCI\\*.txt"
         #- "*.txt"
