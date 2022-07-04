@@ -30,8 +30,8 @@
         dest: /tmp
         remote_src: True
       with_fileglob: 
-          #- "C:\Temp\ansible-PCI\*.txt"
-        - "*.txt"
+        - "C:\Temp\ansible-PCI\*.txt"
+        #- "*.txt"
         
 
 
