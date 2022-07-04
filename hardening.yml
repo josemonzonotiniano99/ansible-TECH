@@ -26,7 +26,7 @@
     - name: Descargando resultados
       #win_copy:
       fetch:
-        src: C:\\Temp\\ansible-PCI\\PCI.ps1
+        src: C:\\Temp\\ansible-PCI\\
         dest: /home/adm-ansible/
         #remote_src: yes
         flat: yes
