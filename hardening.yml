@@ -28,10 +28,11 @@
         src: "{{item}}"
         #dest: /root/awx/projects/Hardening/
         dest: /tmp
-        with_fileglob: 
-          #- "C:\Temp\ansible-PCI\*.txt"
-          - "*.txt"
         remote_src: True
+      with_fileglob: 
+          #- "C:\Temp\ansible-PCI\*.txt"
+        - "*.txt"
+        
 
 
 
