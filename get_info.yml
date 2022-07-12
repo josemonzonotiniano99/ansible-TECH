@@ -1,0 +1,15 @@
+- name : Hardening - Windows
+  #hosts: localhost
+  hosts: all
+  gather_facts: no
+  become: false
+  #connection: remote
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  tasks:
+    - name: Get info for all installed services
+      ansible.windows.win_service_info:
+      register: service_info
+      
+    - debug: 
+        msg: "{{ service_info.stdout_lines }}"
