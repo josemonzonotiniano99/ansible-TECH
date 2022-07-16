@@ -13,3 +13,5 @@
         source: C:\Updates\windows8-rt-kb5012666-x64_5caa5c0dc4bee0969e2c15114a397c74aa5a239a.msu
         state: present
       register: hotfix_install
+    - win_reboot:
+      when: hotfix_uninstall.reboot_required
