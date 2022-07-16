@@ -1,0 +1,15 @@
+- name : Execute patches - Windows
+  #hosts: localhost
+  hosts: all
+  gather_facts: no
+  become: false
+  #connection: remote
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  tasks:
+    - name: Install hotfix validating KB
+      win_hotfix:
+        hotfix_kb: KB3172729
+        source: C:\temp\windows8.1-kb3172729-x64_e8003822a7ef4705cbb65623b72fd3cec73fe222.msu
+        state: present
+      register: hotfix_install
