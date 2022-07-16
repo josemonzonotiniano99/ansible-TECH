@@ -14,4 +14,4 @@
         state: present
       register: hotfix_install
     - win_reboot:
-      when: hotfix_uninstall.reboot_required
+      when: hotfix_install.reboot_required
