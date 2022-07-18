@@ -10,7 +10,7 @@
     - name: Install hotfix validating KB
       win_hotfix:
         hotfix_kb: KB5012666
-        source: C:\Updates\windows8-rt-kb5012666-x64_5caa5c0dc4bee0969e2c15114a397c74aa5a239a.msu
+        source: C:\Updates\windows10.0-kb5012596-x64_af3466a508184a5c1cb62cd6767a0bd2c66ddf01.msu
         state: present
       register: hotfix_install
     - win_reboot:
