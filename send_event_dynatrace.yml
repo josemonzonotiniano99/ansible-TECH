@@ -1,0 +1,26 @@
+---
+- name: Enviar evento personalizado a Dynatrace desde AWX
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Enviar evento a Dynatrace
+      uri:
+        url: "https://ila51153.live.dynatrace.com/api/v1/events"
+        method: POST
+        headers:
+          Authorization: "Api-Token dt0c01.OI6AK5X7BGQ6EXOZ2DYTTL43.IJQWXKHNGTAAUGSEJ7VUFTESK2KG6JEMICHGRHVVROMKKUDWSIICEBJPC42JYHM7"
+          Content-Type: "application/json"
+        body: |
+          {
+            "eventType": "CUSTOM_DEPLOYMENT",
+            "source": "Ansible AWX",
+            "description": "Despliegue ejecutado desde AWX (manual)",
+            "customProperties": {
+              "proyecto": "{{ tower_project_name | default('N/A') }}",
+              "template": "{{ tower_template_name | default('N/A') }}",
+              "usuario": "{{ tower_user_name | default('N/A') }}",
+              "estado": "{{ tower_job_status | default('N/A') }}"
+            }
+          }
+        body_format: json
+        status_code: 200
